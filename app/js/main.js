@@ -1,4 +1,18 @@
 $(function () {
+
+   $('.filter-price__input').ionRangeSlider({
+      type:"double",
+      prefix:"$",
+      onStart: function (data) {
+          $('.filter-price__from').text(data.from);
+          $('.filter-price__to').text(data.to);
+        },
+      onChange: function (data) {
+          $('.filter-price__from').text(data.from);
+          $('.filter-price__to').text(data.to);
+        },
+   });
+
    $('.top-slider__inner').slick({
       dots:true,
       arrows:false,
@@ -30,8 +44,8 @@ $(function () {
   };
 }
 
-function initializeClock(id, endtime) {
-  const clock = document.querySelector(id);
+function initializeClock(className, endtime) {
+  const clock = document.querySelector(className);
   const daysSpan = clock.querySelector('.promo__days');
   const hoursSpan = clock.querySelector('.promo__hours');
   const minutesSpan = clock.querySelector('.promo__minutes');
